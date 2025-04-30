@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="5500" content="width=device-width, initial-scale=1.0"/>
+  <title>Tasks</title>
+  <style>
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 100px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 2; 
+      left: 0; top: 0; 
+      width: 100%; height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.4); 
+    }
+    .modal-content {
+      background-color: #fff; 
+      margin: 10% auto; 
+      padding: 20px; 
+      border: 1px solid #888; 
+      width: 400px;
+    }
+    .modal input, .modal select, .modal textarea {
+      width: 100%; 
+      padding: 8px; 
+      margin-top: 5px; 
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Tasks</h2>
+  <button class="btn btn-primary" onclick="openModal()">New Task</button>
+  <button class="btn btn-secondary" onclick="location.reload()">Refresh</button>
+
+  <table>
+    <thead>
+ <tr>
+<th></th>
+<th>Assigned To</th>
+<th>Status</th>
+<th>Due Date</th>
+<th>Priority</th>
+<th>Comments</th>
+ <th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><input type="checkbox" /></td>
+<td><a href="#">User 1</a></td>
+<td>Completed</td>
+<td>12/10/2024</td>
+<td>Low</td>
+<td>This task is good</td>
+<td>
+<div class="dropdown">
+<button class="btn">⋮</button>
+<div class="dropdown-content">
+<a href="#">Edit</a>
+<a href="#">Delete</a>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <h3>New Task</h3>
+      <label>Assigned To</label>
+      <select>
+        <option>User 1</option>
+        <option>User 2</option>
+        <option>User 3</option>
+      </select>
+
+      <label>Status</label>
+      <select>
+        <option>Not Started</option>
+        <option>In Progress</option>
+        <option>Completed</option>
+      </select>
+
+      <label>Due Date</label>
+      <input type="date" value="2024-12-12" />
+
+      <label>Priority</label>
+      <select>
+        <option>Normal</option>
+        <option>Low</option>
+        <option>High</option>
+      </select>
+
+      <label>Description</label>
+      <textarea rows="3"></textarea>
+
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary">Save</button>
+    </div>
+  </div>
+
+  
+  <script src="myrouter.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
